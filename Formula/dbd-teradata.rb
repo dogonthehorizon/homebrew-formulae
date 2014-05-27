@@ -13,6 +13,7 @@ class DbdTeradata < Formula
     Dir.chdir("DBD-Teradata-12.001")
 
     system "perl", "Makefile.PL"
+    ENV.SITELIBEXP "/usr/local/lib/perl5/site_perl"
     system "make"
     system "make", "install"
   end
