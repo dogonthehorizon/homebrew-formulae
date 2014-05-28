@@ -19,12 +19,12 @@ class Tdsql < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
-    system "cpanm", "CSV_XS"
+    system "sudo", "cpanm", "CSV_XS"
 
     # So, this is generally a Bad Idea but in this case we just need
     # to temporarily link to readline so this module builds successfully.
     system "brew", "link", "--force", "readline"
-    system "cpanm", "Term::ReadLine::Gnu"
+    system "sudo", "cpanm", "Term::ReadLine::Gnu"
     system "brew", "unlink", "readline"
 
     bin.install "tdsql"
