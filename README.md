@@ -1,4 +1,4 @@
-#homebrew-dogonthehorizon
+#homebrew-formulae
 A humble collection of formulas for this and that.
 
 ##Getting Started
