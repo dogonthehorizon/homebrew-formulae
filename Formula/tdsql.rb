@@ -20,8 +20,8 @@ class Tdsql < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
-    bin.install "tdsql"
-    man1.install "tdsql.1"
+    bin.install "bin/tdsql"
+    man1.install "share/man/man1/tdsql.1"
   end
 
   def caveats
