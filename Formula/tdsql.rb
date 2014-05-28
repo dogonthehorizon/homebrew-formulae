@@ -15,11 +15,10 @@ class Tdsql < Formula
 
   depends_on 'DBI' => :perl
   depends_on 'Term::ReadKey' => :perl
+  depends_on 'Text::CSV_XS' => :perl
 
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
-
-    system "sudo", "cpanm", "CSV_XS"
 
     # So, this is generally a Bad Idea but in this case we just need
     # to temporarily link to readline so this module builds successfully.
