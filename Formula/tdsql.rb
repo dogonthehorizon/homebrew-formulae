@@ -22,9 +22,9 @@ class Tdsql < Formula
 
     # So, this is generally a Bad Idea but in this case we just need
     # to temporarily link to readline so this module builds successfully.
-    system "brew", "link", "--force", "readline"
+    system "brew link --force readline"
     system "sudo", "cpanm", "Term::ReadLine::Gnu"
-    system "brew", "unlink", "readline"
+    system "brew unlink readline"
 
     bin.install "tdsql"
     man1.install "tdsql.1"
