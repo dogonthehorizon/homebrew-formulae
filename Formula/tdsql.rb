@@ -1,9 +1,5 @@
 require "formula"
 
-# Documentation: https://github.com/Homebrew/homebrew/wiki/Formula-Cookbook
-#                /usr/local/Library/Contributions/example-formula.rb
-# PLEASE REMOVE ALL GENERATED COMMENTS BEFORE SUBMITTING YOUR PULL REQUEST!
-
 class Tdsql < Formula
   homepage "https://github.com/groupon/tdsql"
   url "https://github.com/groupon/tdsql/archive/tdsql-2014.05.20_18.30.tar.gz"
@@ -18,8 +14,6 @@ class Tdsql < Formula
   depends_on 'Text::CSV_XS' => :perl
 
   def install
-    # ENV.deparallelize  # if your formula fails when building in parallel
-
     bin.install "bin/tdsql"
     man1.install "share/man/man1/tdsql.1"
   end
