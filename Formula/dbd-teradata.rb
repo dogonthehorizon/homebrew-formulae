@@ -13,8 +13,18 @@ class DbdTeradata < Formula
     Dir.chdir("DBD-Teradata-12.001")
 
     system "perl", "Makefile.PL"
-    system "make", "SITELIBEXP=/usr/local/lib/perl5/site_perl"
-    system "make", "install"
+    system "make"
+    system "sudo", "make", "install"
+  end
+
+  def caveats
+
+      s = <<-EOS.undent
+        THIS FORMULA REQUIRES SUDO. Mainly because if it didn't, then you would
+        have to make a few modifications to your perl install, and ain't nobody
+        got time fo dat.
+      EOS
+      s
   end
 
   test do
