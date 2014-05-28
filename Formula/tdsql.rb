@@ -20,25 +20,23 @@ class Tdsql < Formula
   def install
     # ENV.deparallelize  # if your formula fails when building in parallel
 
-    # So, this is generally a Bad Idea but in this case we just need
-    # to temporarily link to readline so this module builds successfully.
-    system "brew link --force readline"
-    system "sudo", "cpanm", "Term::ReadLine::Gnu"
-    system "brew unlink readline"
-
     bin.install "tdsql"
     man1.install "tdsql.1"
   end
 
-  test do
-    # `test do` will create, run in and delete a temporary directory.
-    #
-    # This test will fail and we won't accept that! It's enough to just replace
-    # "false" with the main program this formula installs, but it'd be nice if you
-    # were more thorough. Run the test with `brew test tdsql`.
-    #
-    # The installed folder is not in the path, so use the entire path to any
-    # executables being tested: `system "#{bin}/program", "do", "something"`.
-    system "false"
+  def caveats
+    s = <<-EOS.undent
+        THIS FORMULA REQUIRES SUDO. Mainly because if it didn't, then you would
+        have to make a few modifications to your perl install, and ain't nobody
+        got time fo dat.
+
+        FURTHERMORE. You will need to perform the follow POST-INSTALL steps for
+        tdsql to work correctly:
+
+            brew link --force readline
+            sudo cpanm Term::ReadLine::Gnu
+            brew unlink readline
+    EOS
+    s
   end
 end
